@@ -41,14 +41,11 @@ export default class InView {
          * If supported, use MutationObserver to watch the
          * DOM and run checks on mutation.
          */
-        if (MutationObserver) {
-            addEventListener('DOMContentLoaded', () => {
-                new MutationObserver(check)
-                    .observe(document.body, { attributes: true, childList: true, subtree: true });
-            });
-        }
+        addEventListener('DOMContentLoaded', () => {
+            new MutationObserver(check)
+                .observe(document.body, { attributes: true, childList: true, subtree: true });
+        });
     }
-
 }
 
 export interface Selectors {
