@@ -6,6 +6,8 @@
         "strict": true,
         "sourceMap": true,
         "experimentalDecorators": true,
+        "declaration": true,
+        "declarationDir": "./types",
         "lib": [
             "dom",
             "es2017"
