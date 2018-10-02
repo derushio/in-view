@@ -26,8 +26,8 @@ const config = {
     output: {
         path: distPath,
         filename: '[name].bundle.js',
-        // mark /dist/ folder as a public path so index.html can reach it
-        publicPath: './',
+        library: 'SomeLibrary',
+        libraryTarget: 'umd',
     },
 
     resolve: {
