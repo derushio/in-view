@@ -3,8 +3,6 @@ import webpack from 'webpack';
 
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 
-import nodeExternals from 'webpack-node-externals';
-
 /**
  * Path / File
  */
@@ -18,14 +16,12 @@ const isProduct = process.env.NODE_ENV == 'production';
  * Webpack Config
  */
 const config = {
-    target: 'node',
     mode: process.env.NODE_ENV,
 
     context: contextPath,
     entry: {
-        main: path.resolve(srcPath, 'main.ts'),
+        index: path.resolve(srcPath, 'index.ts'),
     },
-    externals: [ nodeExternals() ],
 
     output: {
         path: distPath,
