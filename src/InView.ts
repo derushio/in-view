@@ -56,7 +56,7 @@ export default class InView {
     public control(selector: string | HTMLElement)   {
         if (selector instanceof HTMLElement) {
             selector.id = `inView${ShortID().replace(/[-|_]/g, '0')}`;
-            selector = selector.id;
+            selector = `#${selector.id}`;
         }
 
         const control = new IVControl(selector, this.selectors, this.options);
