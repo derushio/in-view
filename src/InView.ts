@@ -1,8 +1,10 @@
+import * as ShortID from 'shortid';
 import { throttle } from 'lodash';
 
 import Registry from './Registry';
 import Viewport from './Viewport';
 import Options from './model/Options';
+import IVControl from './IVControl';
 
 export default class InView {
     /**
@@ -45,6 +47,20 @@ export default class InView {
             new MutationObserver(check)
                 .observe(document.body, { attributes: true, childList: true, subtree: true });
         });
+    }
+
+    /**
+     * controlを生成
+     * @param selector
+     */
+    public control(selector: string | HTMLElement)   {
+        if (selector instanceof HTMLElement) {
+            selector.id = `inView${ShortID().replace(/[-|_]/g, '0')}`;
+            selector = selector.id;
+        }
+
+        const control = new IVControl(selector, this.selectors, this.options);
+        return control;
     }
 }
 

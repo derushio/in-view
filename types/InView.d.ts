@@ -1,5 +1,6 @@
 import Registry from './Registry';
 import Options from './model/Options';
+import IVControl from './IVControl';
 export default class InView {
     /**
      * How often and on what events we should check
@@ -14,6 +15,11 @@ export default class InView {
     selectors: Selectors;
     options: Options;
     constructor();
+    /**
+     * controlを生成
+     * @param selector
+     */
+    control(selector: string | HTMLElement): IVControl;
 }
 export interface Selectors {
     [selector: string]: Registry | string[];
