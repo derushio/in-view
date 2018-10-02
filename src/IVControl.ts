@@ -10,6 +10,7 @@ export default class IVControl {
     public selector: string;
     public selectors: Selectors;
     public options: Options;
+    public registry: Registry;
 
     /**
      * TODO: 副作用を取る(selectors)
@@ -35,6 +36,8 @@ export default class IVControl {
         }
 
         this.offset(0);
+
+        this.registry = this.selectors[this.selector] as Registry;
     }
 
     /**
