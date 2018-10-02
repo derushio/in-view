@@ -68,7 +68,7 @@ export default class IVControl {
      * determine element visibility.
      */
     public test(fn: (element: HTMLElement, options: Options) => boolean) {
-        return this.options.test;
+        return this.options.test = fn;
     }
 
     /**
