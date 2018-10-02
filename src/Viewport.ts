@@ -5,7 +5,6 @@ import Options from './model/Options';
  * more than offset px.
  */
 export default function inViewport(element: HTMLElement, options: Options) {
-
     const { top, right, bottom, left, width, height }
         = element.getBoundingClientRect();
 
