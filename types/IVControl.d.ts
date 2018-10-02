@@ -1,4 +1,5 @@
 import { Selectors } from './InView';
+import Registry from './Registry';
 import Options, { Offset } from './model/Options';
 /**
  * The main interface. Take a selector and retrieve
@@ -8,6 +9,7 @@ export default class IVControl {
     selector: string;
     selectors: Selectors;
     options: Options;
+    registry: Registry;
     /**
      * TODO: 副作用を取る(selectors)
      * @param selector
