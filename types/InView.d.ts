@@ -14,7 +14,7 @@ export default class InView {
      */
     selectors: Selectors;
     options: Options;
-    constructor();
+    constructor(parent?: HTMLElement | Window);
     /**
      * controlを生成
      * @param selector
