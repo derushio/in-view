@@ -1,4 +1,5 @@
 # in-view.ts :eyes:
+fork by: https://github.com/camwiegert/in-view
 
 Get notified when a DOM element enters or exits the viewport. A small (~1.9kb gzipped), dependency-free, javascript utility for IE9+.
 
