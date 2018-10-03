@@ -1,4 +1,4 @@
-# in-view.js :eyes:
+# in-view.ts :eyes:
 
 Get notified when a DOM element enters or exits the viewport. A small (~1.9kb gzipped), dependency-free, javascript utility for IE9+.
 
@@ -26,10 +26,16 @@ npm install --save in-view
 With in-view, you can register handlers that are called when an element **enters** or **exits** the viewport. Each handler receives one element, the one entering or exiting the viewport, as its only argument.
 
 ```js
-inView('.someSelector')
-    .on('enter', doSomething)
-    .on('exit', el => {
-        el.style.opacity = 0.5;
+const inview = new InView(document.getElementById('#parent'));
+inview.control(document.getElementById('#target')).registry
+    .on('enter', () => {
+        console.log('test');
+    });
+
+const inview = new InView('#parent');
+inview.control('#target').registry
+    .on('enter', () => {
+        console.log('test');
     });
 ```
 
