@@ -40,7 +40,7 @@
         "type": "git",
         "url": "git+https://github.com/derushio/in-view.git"
     },
-    "author": "",
+    "author": "derushio",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/derushio/in-view/issues"
