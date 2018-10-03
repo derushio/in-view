@@ -2,7 +2,7 @@ import * as ShortID from 'shortid';
 import { throttle } from 'lodash';
 
 import Registry from './Registry';
-import Viewport from './Viewport';
+import { inViewport } from './Viewport';
 import Options from './model/Options';
 import IVControl from './IVControl';
 
@@ -19,9 +19,9 @@ export default class InView {
      * of selectors to enumerate, and an options object.
      */
     public selectors = { history: [] as string[] } as Selectors;
-    public options   = { offset: {}, threshold: 0, test: Viewport } as Options;
+    public options   = { offset: {}, threshold: 0, test: inViewport } as Options;
 
-    public constructor() {
+    public constructor(parent = window as Window | HTMLElement) {
         /**
          * Check each registry from selector history,
          * throttled to interval.
@@ -37,15 +37,18 @@ export default class InView {
          * which checks each registry.
          */
         this.triggers.forEach((event) =>
-            addEventListener(event, check));
+            parent.addEventListener(event, check));
 
         /**
          * If supported, use MutationObserver to watch the
          * DOM and run checks on mutation.
          */
-        addEventListener('DOMContentLoaded', () => {
-            new MutationObserver(check)
-                .observe(document.body, { attributes: true, childList: true, subtree: true });
+        window.addEventListener('DOMContentLoaded', () => {
+            new MutationObserver(check).observe(
+                (parent === window)
+                    ? document.body
+                    : parent as HTMLElement,
+                { attributes: true, childList: true, subtree: true });
         });
     }
 
