@@ -1,6 +1,6 @@
 {
     "name": "in-view-ts",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "Get notified when a DOM element enters or exits the viewport. A small (~1.9kb gzipped), dependency-free, javascript utility for IE9+.",
     "main": "./dist/index.bundle",
     "types": "./types/index.d.ts",
