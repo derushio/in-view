@@ -16,12 +16,25 @@ npm install --save in-view-ts
 With in-view-ts, you can register handlers that are called when an element **enters** or **exits** the viewport. Each handler receives one element, the one entering or exiting the viewport, as its only argument.
 
 ```js
+// watch window scroll
+const inview = new InView();
+inview.control(document.getElementById('#target')).registry
+    .on('enter', () => {
+        console.log('test');
+    });
+```
+
+```js
+// watch parent scroll
 const inview = new InView(document.getElementById('#parent'));
 inview.control(document.getElementById('#target')).registry
     .on('enter', () => {
         console.log('test');
     });
+```
 
+```js
+// watch parent scroll
 const inview = new InView('#parent');
 inview.control('#target').registry
     .on('enter', () => {
