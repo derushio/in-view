@@ -12,7 +12,7 @@ export default class InView {
      * each registry.
      */
     public interval = 100;
-    public triggers = [ 'scroll', 'resize', 'load' ];
+    public triggers = [ 'scroll', 'touchmove', 'resize', 'load' ];
 
     /**
      * Maintain a hashmap of all registries, a history
