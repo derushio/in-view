@@ -43,13 +43,15 @@ export default class InView {
          * If supported, use MutationObserver to watch the
          * DOM and run checks on mutation.
          */
-        window.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => {
             new MutationObserver(check).observe(
                 (parent === window)
                     ? document.body
                     : parent as HTMLElement,
                 { attributes: true, childList: true, subtree: true });
         });
+        // 初回チェック
+        window.setTimeout(check, 100);
     }
 
     /**
